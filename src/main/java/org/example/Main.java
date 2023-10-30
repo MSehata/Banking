@@ -2,7 +2,6 @@ package org.example;
 import java.util.ArrayList;
 import java.util.List;
 
-// Define the Account interface
 interface Account {
     void deposit(double amount);
     void withdraw(double amount);
@@ -108,11 +107,21 @@ public class Main {
         bank.addAccount(savingsAccount);
         bank.addAccount(currentAccount);
 
-        savingsAccount.deposit(500);
-        savingsAccount.calculateInterest();
+        savingsAccount.deposit(5000);
+        System.out.println("The Balance before the interest");
         savingsAccount.viewBalance();
+        System.out.println();
 
-        currentAccount.withdraw(1500);
+        savingsAccount.calculateInterest();
+        System.out.println("The Balance with the interest");
+        savingsAccount.viewBalance();
+        System.out.println();
+
+        System.out.println("Current Account balance before withdrawal");
+        currentAccount.viewBalance();
+        System.out.println();
+        System.out.println("Current Account balance after withdrawal");
+        currentAccount.withdraw(200);
         currentAccount.viewBalance();
     }
 }
